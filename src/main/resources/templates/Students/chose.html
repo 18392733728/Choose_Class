@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.thymeleaf.org/thymeleaf-extras-shiro">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/static/css/semantic.min.css}">
+    <link rel="stylesheet" th:href="@{/static/JS/layui/css/layui.css}">
+    <link rel="stylesheet" th:href="@{/static/JS/layui/css/modules/code.css}">
+    <script th:src="@{/static/JS/jquery-3.5.1.js}"></script>
+    <script th:src="@{/static/JS/semantic.min.js}"></script>
+    <script th:src="@{/static/JS/layui/layui.js}"></script>
+    <style>
+        body {
+            font-family: "Georgia", serif;
+        }
+        body,div{
+            margin: 0;
+            padding: 0;
+        }
+        #ce{
+            font-weight: bold;
+            position: fixed;
+            height: 100%;
+            padding-top: 50px;
+            margin: 0;
+        }
+        a{
+            text-align: center;
+        }
+    </style>
+</head>
+<script th:src="@{/static/JS/Students/chose.js}"></script>
+<body>
+    <div>
+        <ul class="layui-nav layui-nav-tree" lay-filter="test" id="ce">
+            <li class="layui-nav-item layui-nav-itemed"> <a class="" href="#"><i class="layui-icon">&nbsp;</i>个人课程<span class="layui-nav-more"></span></a>
+                <!--        layui-this      -->
+                <dl class="layui-nav-child">
+                    <dd class="layui-this"><a th:href="@{/chose}">学生选课</a></dd>
+                    <dd class=""><a th:href="@{/kebiao}">查看课表</a></dd>
+                    <dd class=""><a th:href="@{/score}">课程成绩</a></dd>
+                    <dd class=""><a th:href="@{/holidays_student}">提交请假</a></dd>
+                    <dd class=""><a th:href="@{/holidays_ed}">请假记录</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item layui-nav-itemed"> <a class="" href="#"><i class="layui-icon">&nbsp;</i>个人信息<span class="layui-nav-more"></span></a>
+                <dl class="layui-nav-child">
+                    <dd class=""><a th:href="@{/set_student}">密码修改</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item layui-nav-itemed"> <a class="" href="#"><i class="layui-icon">&nbsp;</i>其他<span class="layui-nav-more"></span></a>
+                <dl class="layui-nav-child">
+                    <dd class=""><a th:href="@{/admin}">进入后台</a>
+                    </dd>
+                </dl>
+            </li>
+            <span class="layui-nav-bar" style="top: 352.5px; height: 0px; opacity: 0;"></span>
+        </ul>
+        <div style="top: 60px;position: absolute;margin-left: 400px;">
+            <div style="text-align:center;clear:both;position:absolute;left:0;top:0;width: 1200px;height: 800px;">
+                <h1  class="ui header,ui center aligned header" style="color: #000000;margin-top: 10px">学生选课</h1>
+                <div >
+                    <div>
+                        <img id="img" style="size:50px;box-shadow: black 10px 10px 100px;border-radius: 50px;border: 1px"/>
+                    </div>
+                    <div style="top: 20px;margin-top: 20px;margin-left: 20px;font-size: 30px;">
+                        <div id="h2" style="margin-bottom: 20px;color: #020202;display: inline-block;"></div>&nbsp;
+                        <div id="h3" style="margin-bottom: 20px;color: #000000;display: inline-block;"></div>
+                        <h6 id="h6" hidden>[[${login}]]</h6>
+                    </div>
+                </div>
+                <div class="ui" style="margin-top: 100px">
+                    <form action="/up" style="margin-left: 3em">
+                        <select class="ui dropdown selection mini" id="class1" style="height: 45px;">
+                            <option value="">第一节课</option>
+                            <option value="2">大学英语</option>
+                            <option value="14">大数据基础</option>
+                            <option value="18">LINUX</option>
+                            <option value="13">传统养生</option>
+                            <option value="4">高等数学</option>
+                        </select>
+                        <select class="ui dropdown selection mini" id="class2" style="height: 45px;">
+                            <option value="">第二节课</option>
+                            <option value="6">离散数学</option>
+                            <option value="22">自习</option>
+                            <option value="2">大学英语</option>
+                            <option value="15">Vue</option>
+                            <option value="16">JWeb</option>
+                        </select>
+                        <select class="ui dropdown selection mini" id="class3" style="height: 45px;">
+                            <option value="">第三节课</option>
+                            <option value="10">工程制图</option>
+                            <option value="9">程序设计</option>
+                            <option value="6">离散数学</option>
+                            <option value="12">应用化学</option>
+                            <option value="17">JavaSE</option>
+                        </select>
+                        <select class="ui dropdown selection mini" id="class4" style="height: 45px;">
+                            <option value="">第四节课</option>
+                            <option value="3">大学体育</option>
+                            <option value="19">电路基础</option>
+                            <option value="5">大学物理</option>
+                            <option value="11">数据库</option>
+                            <option value="13">传统养生</option>
+                        </select>
+                        <select class="ui selection dropdown mini" id="day" style="height: 45px;">
+                            <option value="">星 期</option>
+                            <option value="1">一</option>
+                            <option value="2">二</option>
+                            <option value="3">三</option>
+                            <option value="4">四</option>
+                            <option value="5">五</option>
+                        </select>
+                    </form>
+                </div>
+                <div class="actions">
+                    <input class="ui button"  id="submit" value="提交" style="margin: 30px;"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button  class="ui secondary button" onclick="location.href='out'" style="position: absolute;right: 30px;top: 26px;">注销</button>
+</body>
+</html>

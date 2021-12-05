@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/static/css/semantic.min.css}">
+    <script th:src="@{/static/JS/jquery-3.5.1.js}"></script>
+    <script th:src="@{/static/JS/semantic.min.js}"></script>
+    <style>
+        html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background:transparent}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:bold}dfn{font-style:italic}h1{font-size:2em;margin:0.67em 0}mark{background:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-0.5em}sub{bottom:-0.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:1em 40px}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}pre{overflow:auto}code,kbd,pre,samp{font-family:monospace, monospace;font-size:1em}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}button{overflow:visible}button,select{text-transform:none}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal}input[type="checkbox"],input[type="radio"]{-moz-box-sizing:border-box;box-sizing:border-box;padding:0}input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button{height:auto}input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;box-sizing:content-box}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:0.35em 0.625em 0.75em}legend{border:0;padding:0}textarea{overflow:auto}optgroup{font-weight:bold}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}
+        body {
+            font-family: "Georgia", serif;
+        }
+        canvas {
+            width: 100%;
+            height: 100%;
+            background: #f0ede6;
+        }
+    </style>
+</head>
+<body>
+<script type="text/javascript" th:src="@{/static/JS/Students/toregister.js}"></script>
+
+<div style="text-align:center;clear:both;position:absolute;top:10px;width: 100%;">
+    <a th:href="@{/index}" id="return">返回主页</a>
+    <h1  class="ui header,ui center aligned header">注册</h1>
+    <div style="text-align: center;">
+        <form  class="ui" style="padding-top: 150px" method="get" id="form">
+            <div class="ui form">
+                <div class="inline field">
+                    <label>姓名</label>
+                    <input type="text" id="username" name="username" placeholder="USERNAME"/>
+                    <span id="usernameError" style="font-size: 12px"></span>
+                </div>
+            </div>
+            <br>
+            <div class="ui form">
+                <div class="inline field">
+                    <label>学号</label>
+                    <input type="text" id="num" name="num" placeholder="SCHOOL_NUM"/>
+                    <span id="numError" style="font-size: 12px"></span>
+                </div>
+            </div>
+            <br>
+            <div class="ui form">
+                <div class="inline field">
+                    <label>密码</label>
+                    <input type="text" id="password" name="password" placeholder="PASSWORD"/>
+                    <span id="passError" style="font-size: 12px"></span>
+                </div>
+            </div>
+            <br>
+            <div class="ui form">
+                <div class="inline field">
+                    <label>手机号</label>
+                    <input type="text" id="phone" name="phone" placeholder="PHONE"/>
+                    <span id="phoneError" style="font-size: 12px"></span>
+                </div>
+            </div>
+            <br>
+            <div class="ui form">
+                <div class="inline field">
+                    <label>头像:本地文件</label>
+                    <input type="file"  id="image" />
+                </div>
+            </div>
+            <br>
+            <input type="button" id="subbtn" name="subbtn" value="注册" class="ui button"/>
+        </form>
+    </div>
+</div>
+</form>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理</title>
+    <link rel="stylesheet" th:href="@{/static/css/semantic.min.css}">
+</head>
+<script th:src="@{/static/JS/jquery-3.5.1.js}"></script>
+<script th:src="@{/static/JS/semantic.min.js}"></script>
+
+<body>
+<a th:href="@{/index}" style="font-weight: bold;">返回主页</a>
+<p th:text="${msg}" style="color: red;text-align: center"></p>
+<h1  class="ui header,ui center aligned header" style="font-weight: bold;">管理员登录</h1>
+<div style="text-align: center;">
+    <form action="/toadmin" class="ui" style="padding-top: 150px" method="post">
+        <div class="ui form">
+            <div class="inline field">
+                <label >账号:</label>
+                <input type="text" id="username" name="username" placeholder="username">
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="ui form">
+            <div class="inline field">
+                <label >密码:</label>
+                <input type="text" id="password" name="password" placeholder="password">
+            </div>
+        </div>
+        <br>
+        <br>
+        <div style="padding-left: 50px">
+            <input type="submit" class="ui button" value="登录后台" id="goadmin">
+        </div>
+
+    </form>
+</div>
+</body>
+</html>

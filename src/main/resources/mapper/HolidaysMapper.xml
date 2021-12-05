@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.happ.mapper.HolidaysMapper">
+    <insert id="addHoliday">
+        insert into holidays(student_num,teacher_num,rea,keyss,start_date,end_date) values(#{student_num},#{teacher_num},#{rea},#{keyss},#{start_date},#{end_date})
+    </insert>
+    <update id="updateHoliday">
+        update holidays set keyss='true' where id=#{id};
+    </update>
+    <select id="checkHolidays_student" resultType="com.happ.pojo.Holidays">
+        select * from holidays where student_num=#{student_num};
+    </select>
+    <select id="checkHolidays_teacher" resultType="com.happ.pojo.Holidays">
+        select * from holidays where teacher_num=#{teacher_num};
+    </select>
+</mapper>

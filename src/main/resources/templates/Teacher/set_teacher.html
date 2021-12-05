@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>教师欢迎页</title>
+    <link rel="stylesheet" th:href="@{/static/css/semantic.min.css}">
+    <link rel="stylesheet" th:href="@{/static/JS/layui/css/layui.css}">
+    <link rel="stylesheet" th:href="@{/static/JS/layui/css/modules/code.css}">
+    <script th:src="@{/static/JS/jquery-3.5.1.js}"></script>
+    <script th:src="@{/static/JS/semantic.min.js}"></script>
+    <script th:src="@{/static/JS/layui/layui.js}"></script>
+    <style>
+        body,div{
+            margin: 0;
+            padding: 0;
+        }
+        #ce{
+            font-weight: bold;
+            position: fixed;
+            height: 100%;
+            padding-top: 50px;
+            margin: 0;
+        }
+        a{
+            text-align: center;
+        }
+    </style>
+</head>
+<script th:src="@{/static/JS/Teacher/set_teacher.js}"></script>
+<body>
+<div style="height: 100%;width: 200px;">
+    <ul class="layui-nav layui-nav-tree" lay-filter="test" id="ce" style="height: 100%;padding-top: 49px;">
+        <li class="layui-nav-item layui-nav-itemed"> <a class="" href="#"><i class="layui-icon">&nbsp;</i>个人课程<span class="layui-nav-more"></span></a>
+            <!--        layui-this      -->
+            <dl class="layui-nav-child">
+                <dd class=""><a th:href="@{/chose_teacher}">教师选课</a></dd>
+                <dd class=""><a th:href="@{/look_students}">学生选课情况</a></dd>
+                <dd class=""><a th:href="@{/holidays_teacher}">学生请假情况</a></dd>
+            </dl>
+        </li>
+        <li class="layui-nav-item layui-nav-itemed"> <a class="" href="#"><i class="layui-icon">&nbsp;</i>个人信息<span class="layui-nav-more"></span></a>
+            <dl class="layui-nav-child">
+                <dd class="layui-this"><a th:href="@{/set_teacher}">密码修改</a></dd>
+            </dl>
+        </li>
+        <li class="layui-nav-item layui-nav-itemed"> <a class="" href="#"><i class="layui-icon">&nbsp;</i>其他<span class="layui-nav-more"></span></a>
+            <dl class="layui-nav-child">
+                <dd class=""><a th:href="@{/admin}">进入后台</a>
+                </dd>
+            </dl>
+        </li>
+        <span class="layui-nav-bar" style="top: 352.5px; height: 0px; opacity: 0;"></span>
+    </ul>
+    <div style="top: 60px;position: absolute;margin-left: 400px;">
+        <div style="text-align:center;clear:both;position:absolute;left:0;top:0;width: 1200px;height: 800px;">
+            <h1  class="ui header,ui center aligned header" style="color: #000000;margin-top: 10px">密码修改</h1>
+            <div >
+                <div style="top: 20px;margin-top: 20px;margin-left: 20px;font-size: 30px;">
+                    <div id="h2" style="margin-bottom: 20px;color: #020202;display: inline-block;"></div>&nbsp;
+                    <div id="h3" style="margin-bottom: 20px;color: #000000;display: inline-block;"></div>
+                    <h6 id="h6" hidden>[[${login}]]</h6>
+                </div>
+            </div>
+            <table class="ui celled striped table" style="font-weight: bold;top: 60px;width: 1200px;margin-top: 100px;">
+                <thead>
+                <tr><th></th>
+                    <th></th>
+                    <th></th>
+                </tr></thead>
+                <tbody>
+                <tr>
+                    <td>
+                        <div class="ui labeled input">
+                            <div class="ui label">原密码</div>
+                            <input type="text" id="password_o">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="ui labeled input">
+                            <div class="ui label">新密码</div>
+                            <input type="text" id="password_n">
+                        </div>
+                    </td>
+                    <td>
+                        <div style="padding-left: 150px">
+                            <input type="button" class="ui button" value="提交" id="btn_s">
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+<button  class="ui secondary button" onclick="location.href='out'" style="position: absolute;right: 30px;top: 26px;">注销</button>
+</body>
+</html>

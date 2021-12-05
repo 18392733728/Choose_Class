@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.thymeleaf.org/thymeleaf-extras-shiro">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/static/css/semantic.min.css}">
+    <link rel="stylesheet" th:href="@{/static/JS/layui/css/layui.css}">
+    <link rel="stylesheet" th:href="@{/static/JS/layui/css/modules/code.css}">
+    <script th:src="@{/static/JS/jquery-3.5.1.js}"></script>
+    <script th:src="@{/static/JS/semantic.min.js}"></script>
+    <script th:src="@{/static/JS/layui/layui.js}"></script>
+    <style>
+        body {
+            font-family: "Georgia", serif;
+        }
+        body,div{
+            margin: 0;
+            padding: 0;
+        }
+        #ce{
+            font-weight: bold;
+            position: fixed;
+            height: 100%;
+            padding-top: 50px;
+            margin: 0;
+        }
+        a{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<script th:src="@{/static/JS/Students/holidays_student.js}"></script>
+<div>
+    <ul class="layui-nav layui-nav-tree" lay-filter="test" id="ce">
+        <li class="layui-nav-item layui-nav-itemed"> <a class="" href="#"><i class="layui-icon">&nbsp;</i>个人信息<span class="layui-nav-more"></span></a>
+            <!--        layui-this      -->
+            <dl class="layui-nav-child">
+                <dd class=""><a th:href="@{/chose}">选课</a></dd>
+                <dd class=""><a th:href="@{/kebiao}">查看课表</a></dd>
+                <dd class=""><a th:href="@{/score}">课程成绩</a></dd>
+                <dd class="layui-this"><a th:href="@{/holidays_student}">提交请假</a></dd>
+                <dd class=""><a th:href="@{/holidays_ed}">请假记录</a></dd>
+            </dl>
+        </li>
+        <li class="layui-nav-item layui-nav-itemed"> <a class="" href="#"><i class="layui-icon">&nbsp;</i>个人信息<span class="layui-nav-more"></span></a>
+            <dl class="layui-nav-child">
+                <dd class=""><a th:href="@{/set_student}">密码修改</a></dd>
+            </dl>
+        </li>
+        <li class="layui-nav-item layui-nav-itemed"> <a class="" href="#"><i class="layui-icon">&nbsp;</i>其他<span class="layui-nav-more"></span></a>
+            <dl class="layui-nav-child">
+                <dd class=""><a th:href="@{/admin}">进入后台</a>
+                </dd>
+            </dl>
+        </li>
+        <span class="layui-nav-bar" style="top: 352.5px; height: 0px; opacity: 0;"></span>
+    </ul>
+    <div style="top: 60px;position: absolute;margin-left: 400px;">
+        <div style="text-align:center;clear:both;position:absolute;left:0;top:0;width: 1200px;height: 800px;">
+            <h1  class="ui header,ui center aligned header" style="color: #000000;margin-top: 10px">学生请假</h1>
+            <div >
+                <div >
+                    <img  id="img" style="size:50px;box-shadow: black 10px 10px 100px;border-radius: 50px;border: 1px"/>
+                </div>
+                <div style="top: 20px;margin-top: 20px;margin-left: 20px;font-size: 30px;">
+                    <div id="h2" style="margin-bottom: 20px;color: #020202;display: inline-block;"></div>&nbsp;
+                    <div id="h3" style="margin-bottom: 20px;color: #000000;display: inline-block;"></div>
+                    <h6 id="h6" hidden>[[${login}]]</h6>
+                </div>
+            </div>
+            <div style="height: 500px;width: 300px;margin-left: 463px;margin-top: 62px;">
+                <div class="ui labeled input">
+                    <div class="ui label">请假老师</div>
+                    <input type="text" id="teacher_name" name="teacher_name" placeholder="Teacher_Name"/>
+                </div>
+                <div class="ui labeled input" style="top: 30px;">
+                    <div class="ui label">请假理由</div>
+                    <input type="text" id="reason" name="reason" placeholder="Reason"/>
+                </div>
+                <div class="ui labeled input" style="top: 30px;width: 268px;margin-top: 30px;">
+                    <div class="ui label">开始时间</div>
+                    <input type="datetime-local" id="start" name="start" value="2021-01-21T08:00:00"/>
+                </div>
+                <div class="ui labeled input" style="top: 30px;width: 268px;margin-top: 30px;">
+                    <div class="ui label">结束时间</div>
+                    <input type="datetime-local" id="end" name="end" value="2021-01-21T08:00:00"/>
+                </div>
+                <div style="padding-left: 9px;">
+                    <input type="button" class="ui button" value="请假" id="btn_s" style="margin-top: 70px;"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button  class="ui secondary button" onclick="location.href='out'" style="position: absolute;right: 30px;top: 26px;">注销</button>
+</div>
+</div>
+</body>
+</html>

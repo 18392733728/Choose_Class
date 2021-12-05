@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.happ.mapper.UserMapper">
+    <select id="queryone_name_num" parameterType="String" resultType="com.happ.pojo.User">
+        select * from users where username=#{username};
+    </select>
+
+    <select id="queryclass_day" resultType="com.happ.pojo.classdata">
+        select * from classdata where num=#{num} and days=#{day};
+    </select>
+
+    <select id="cha_student" parameterType="String" resultType="String">
+        select password from users where num=#{num};
+    </select>
+
+    <select id="querys_num" resultType="com.happ.pojo.Score">
+        select * from s where num=#{num} and c_id=#{c_id};
+    </select>
+
+    <select id="queryone" resultType="com.happ.pojo.User">
+        select * from users where num=#{num};
+    </select>
+
+    <select id="queryone2" resultType="com.happ.pojo._Class">
+        select * from _class where id=#{id};
+    </select>
+
+    <select id="queryclass" resultType="com.happ.pojo.classdata">
+        select * from classdata where num=#{num};
+    </select>
+
+    <insert id="addClass_to_s" >
+        insert into s(num,c_id) values(#{num},#{c_id});
+    </insert>
+
+    <delete id="delClass_to_s" >
+        delete from s where num=#{num} and c_id=#{c_id};
+    </delete>
+
+    <select id="queryall" resultType="com.happ.pojo.User">
+        select * from users;
+    </select>
+
+    <insert id="addUser" parameterType="com.happ.pojo.User">
+        insert into users(username,password,phone,num,title) values(#{username},#{password},#{phone},#{num},#{title});
+    </insert>
+
+    <insert id="addClass" >
+        insert into classdata(num,class1,class2,class3,class4,days) values (#{num},#{class1},#{class2},#{class3},#{class4},#{days})
+    </insert>
+
+    <update id="update_classed" >
+        update classdata set class1=#{class1},class2=#{class2},class3=#{class3},class4=#{class4} where num=#{num} and days=#{days}
+    </update>
+
+    <update id="changePassword" parameterType="String">
+        update users set password=#{newPassword} where num=#{num};
+    </update>
+
+    <update id="inputscore">
+        update s set score=#{score} where num=#{num} and c_id=#{c_id};
+    </update>
+
+    <select id="queryclass_num" resultType="Integer">
+        select c_id from s where num=#{num};
+    </select>
+
+</mapper>

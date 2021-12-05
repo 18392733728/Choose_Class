@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.happ.mapper._ClassMapper">
+
+    <update id="class_addteacher">
+        update _class set teacher=#{teacher} where id=#{id};
+    </update>
+
+    <select id="query_c_id" resultType="com.happ.pojo.Score" parameterType="String">
+        select * from s where c_id=#{c_id}
+    </select>
+
+</mapper>
